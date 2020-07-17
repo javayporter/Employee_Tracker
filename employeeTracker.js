@@ -35,29 +35,35 @@ function start() {
     "END"
   ]
 })
+
+    // based on their answer, call the appropriate funtions to peform the chosen action.
     .then(function(answer) {
-      // based on their answer, call the appropriate funtions to peform the chosen action.
-      if (answer.action === "ADD DEPARTMENT") {
-        addDepartment();
+      switch(answer.action) {
+        case "ADD DEPARTMENT":
+            addDepartment();
+            break;      
+
+        case "VIEW DEPARTMENT":
+              viewDepartment();
+              break; 
+
+        case "ADD ROLE":
+            addRole();
+            break;
+
+        case "VIEW ROLE":
+            viewRole();
+            break;
+
+        case "ADD EMPLOYEE":
+            addEmployee();
+            break;
+
+        case "VIEW EMPLOYEE":
+            viewEmployee();
+            break; 
       }
-      else if(answer.action === "VIEW DEPARTMENT") {
-        viewDepartment();
-      }
-      else if(action.action === "ADD ROLE") {
-        addRole();
-      } 
-      else if(answer.action === "VIEW ROLE") {
-        viewRole();
-      }
-      else if(answer.action === "ADD EMPLOYEE") {
-        addEmployee();
-      }
-      else if(answer.action === "VIEW EMPLOYEE") {
-        viewEmployee();
-      }
-      else { 
-        connection.end();
-      }
+      
     });
 
     // function to handle adding a role
